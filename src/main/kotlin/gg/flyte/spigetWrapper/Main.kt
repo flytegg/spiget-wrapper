@@ -1,9 +1,7 @@
 package gg.flyte.spigetWrapper
 
-fun main(args: Array<String>) {
-    println("Hello World!")
+import gg.flyte.spigetWrapper.tye.objects.SpiGetClient
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+fun main() {
+    SpiGetClient.getResource(9089).body()?.let { println(it.testedVersions) }
 }
