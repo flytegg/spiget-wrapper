@@ -1,9 +1,10 @@
-package gg.flyte.spigetWrapper.tye.objects
+package gg.flyte.spigetWrapper.type.objects
 
 import com.squareup.moshi.Moshi
-import gg.flyte.spigetWrapper.tye.interfaces.SpiGetService
-import gg.flyte.spigetWrapper.tye.jsonAdapter.UUIDAdapter
+import gg.flyte.spigetWrapper.type.interfaces.SpiGetService
+import gg.flyte.spigetWrapper.type.jsonAdapter.UUIDAdapter
 import org.spiget.data.resource.Resource
+import org.spiget.data.resource.version.ResourceVersion
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -24,6 +25,13 @@ object SpiGetClient {
 
     private val spiGetService = retrofit.create(SpiGetService::class.java)
 
-    fun getResource(id: Int): Response<Resource> = spiGetService.getResource(id).execute()
+    fun getResource(id: Int): Response<Resource> =
+        spiGetService.getResource(id).execute()
+
+    fun getResourceVersion(id: Int, versionId: String): Response<ResourceVersion> =
+        spiGetService.getResourceVersion(id, versionId).execute()
+
+    fun getLatestResourceVersion(id: Int): Response<ResourceVersion> =
+        getResourceVersion(id, "latest")
 
 }

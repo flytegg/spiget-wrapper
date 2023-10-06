@@ -1,4 +1,4 @@
-package gg.flyte.spigetWrapper.tye.jsonAdapter
+package gg.flyte.spigetWrapper.type.jsonAdapter
 
 import com.squareup.moshi.*
 import java.util.UUID
